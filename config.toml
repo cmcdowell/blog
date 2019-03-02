@@ -1,3 +1,10 @@
-baseURL = "http://example.org/"
+baseURL = "http://christophermcdowell.dev/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Christopher McDowell's Blog"
+
+[params]
+  Name = "Christopher McDowell"
+  HeaderUsername = "chris"
+  HeaderHostname = "christophermcdowell.dev"
+  About = "info_about_you"
+  ProfilePicture = "profile_picture_url"
