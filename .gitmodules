@@ -1,3 +1,9 @@
 [submodule "themes/hugo-theme-nix"]
 	path = themes/hugo-theme-nix
 	url = https://github.com/LordMathis/hugo-theme-nix.git
+[submodule "themes/hugo-creative-portfolio-theme"]
+	path = themes/hugo-creative-portfolio-theme
+	url = https://github.com/kishaningithub/hugo-creative-portfolio-theme.git
+[submodule "themes/beautifulhugo"]
+	path = themes/beautifulhugo
+	url = https://github.com/halogenica/beautifulhugo.git

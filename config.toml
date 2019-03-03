@@ -1,10 +1,60 @@
-baseURL = "http://christophermcdowell.dev/"
-languageCode = "en-us"
-title = "Christopher McDowell's Blog"
+baseurl = "https://christophermcdowell.dev"
+DefaultContentLanguage = "en"
+title = "Chris McDowell"
+theme = "beautifulhugo"
+metaDataFormat = "yaml"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+#pygmentsUseClassic = true
+#pygmentOptions = "linenos=inline"
+#disqusShortname = ""
+#googleAnalytics = "XXX"
 
-[params]
-  Name = "Christopher McDowell"
-  HeaderUsername = "chris"
-  HeaderHostname = "christophermcdowell.dev"
-  About = "info_about_you"
-  ProfilePicture = "profile_picture_url"
+[Params]
+#  homeTitle = ""
+  subtitle = "A practical journal of FOSS Enthusiast"
+  logo = "/profile.jpg"
+  favicon = "img/favicon.ico"
+  dateFormat = "January 2, 2006"
+  commit = false
+  rss = true
+  comments = false
+  readingTime = true
+  useHLJS = true
+  socialShare = true
+#  gcse = "" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+
+#[[Params.bigimg]]
+#  src = "img/triangle.jpg"
+#  desc = "Triangle"
+#[[Params.bigimg]]
+#  src = "img/sphere.jpg"
+#  desc = "Sphere"
+#  # position: see values of CSS background-position.
+#  position = "center top"
+#[[Params.bigimg]]
+#  src = "img/hexagon.jpg"
+#  desc = "Hexagon"
+
+[Author]
+  name = "Christopher McDowell"
+  website = "christophermcdowell.dev"
+  email = "chris@christophermcdowell.dev"
+  github = "cmcdowell"
+  #gitlab = ""
+# twitter = ""
+#  #reddit = ""
+  linkedin = "chrispmcdowell"
+  #stackoverflow = ""
+  #telegram = ""
+
+[[menu.main]]
+    name = "Blog"
+    url = "post/"
+    weight = 1
+
+[[menu.main]]
+    name = "About Me"
+    url = "about"
+    weight = 2
