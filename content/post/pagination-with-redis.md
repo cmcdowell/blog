@@ -21,10 +21,10 @@ of blog posts. The command will return one increment *(page)* of results and
 also return a cursor allowing you to get the next increment. When the returned
 cursor is `0` then the end has been reached.
 
-Let's look at an example. First let's assume we have 10 blog posts stored in
+Let's look at an example. First, let's assume we have 10 blog posts stored in
 Redis using the [SET](https://redis.io/commands/set) command.
 
-    redis> SET post:1 "Super interesting blog post about somthing."
+    redis> SET post:1 "Super interesting blog post about something."
     "OK"
 
 Now let's use the Redis set data structure as an index of posts.
@@ -42,38 +42,38 @@ keys. Supposing our page size is 2, we can do that as follows.
 
 The above command scans the set of posts with an initial cursor of `0`. Redis
 returns the cursor, which can be used with SSCAN to get the next increment of
-posts, and the keys of two posts from our posts set.  With each increment we
+posts, and the keys of two posts from our posts set.  With each increment, we
 can use the [MGET](https://redis.io/commands/mget) command to get the content for our page of blog posts.
 
     redis> MGET post:1 post:2
-    1) "Super interesting blog post about somthing."
+    1) "Super interesting blog post about something."
     2) "Yet another great blog post."
 
 When the returned cursor
 is `0` you have iterated over the entire set of posts, and you should stop.
 
-You will notice that the posts are returned in a random order, if order is
+You will notice that the posts are returned in a random order, if the order is
 important you can use a sorted set as your index of posts and do the same as
 above with the [ZADD](https://redis.io/commands/zadd) and
 [ZSCAN](https://redis.io/commands/ZSCAN) commands.
 
 As noted in the Redis documentation, SSCAN will not always return **COUNT** items
-from your set. Sometimes it can return 0 items with a non 0 cursor (remember your iteration will not be
+from your set. Sometimes it can return 0 items with a non zero cursor (remember your iteration will not be
 finished until the cursor is 0) or more than **COUNT** items. If the exact number
 of items per page is important for your needs you may have to take this
 into account.
 
 SSCAN stores no state, so you will either need the user to pass in their cursor
-with each request for a page, or store it in their session.
+with each request for a page or store it in their session.
 
 
 ### ZRANGE ###
 
-In a similar way to the previous method we can use one of Redis's compound data
+In a similar way to the previous method, we can use one of Redis's compound data
 types as an index of blog posts. Just like before we let's assume we have 10
 blog posts stored using the [SET](https://redis.io/commands/set) command.
 
-    redis> SET post:1 "Super interesting blog post about somthing."
+    redis> SET post:1 "Super interesting blog post about something."
     "OK"
 
 This time lets use a sorted set as our index. Just like before we can use the [ZADD](https://redis.io/commands/zadd) command
@@ -92,13 +92,13 @@ means our index will be sorted by date/time, which seems desirable for a blog.
 
 Now assuming a page size of 2, we can retrieve a page with the [ZRANGE](https://redis.io/commands/zrange) command.
 
-    redis> zrange posts 0 1
+    redis> ZRANGE posts 0 1
     1) "post:1"
     2) "post:2"
 
 And for page 2.
 
-    redis> zrange posts 2 4
+    redis> ZRANGE posts 2 4
     1) "post:3"
     2) "post:4"
 
